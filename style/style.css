@@ -298,3 +298,45 @@ body {
     font-weight: lighter;
   }
 }
+
+/* New styles for the 3 birthday images */
+.girl-dps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.girl-dp-new {
+  max-width: 30% !important; /* Override .six img max-width:45% */
+  height: auto;
+  border-radius: 15px;
+  /* Glowing border - Hot Pink / Pinkish as per typical birthday themes */
+  border: 4px solid rgba(255, 105, 180, 0.8);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 
+              0 0 30px rgba(255, 105, 180, 0.6), 
+              0 0 45px rgba(255, 105, 180, 0.4);
+  background-color: transparent; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.girl-dp-new:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 1), 
+              0 0 40px rgba(255, 105, 180, 0.8), 
+              0 0 60px rgba(255, 105, 180, 0.6);
+  z-index: 10;
+}
+
+/* Adjust layout on small screens */
+@media screen and (max-width: 500px) {
+  .girl-dps {
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  .girl-dp-new {
+    max-width: 45% !important;
+    margin-bottom: 10px;
+  }
+}
