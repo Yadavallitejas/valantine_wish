@@ -342,7 +342,7 @@ body {
 }
 
 .girl-dps img:nth-child(3) {
-  transform: rotate(10deg) translateY(10px);
+  transform: rotate(-20deg) translateY(10px);
 }
 
 /* Maintain hover effect overrides */
