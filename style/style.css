@@ -30,7 +30,7 @@ body {
   top: 0;
 }
 
-.container > div {
+.container>div {
   position: absolute;
   left: 0;
   right: 0;
@@ -41,7 +41,7 @@ body {
   font-size: 4.5rem;
 }
 
-.one > img {
+.one>img {
   vertical-align: middle;
   margin-bottom: 10px;
   max-width: 100%;
@@ -310,31 +310,61 @@ body {
 }
 
 .girl-dp-new {
-  max-width: 30% !important; /* Override .six img max-width:45% */
+  max-width: 30% !important;
+  /* Override .six img max-width:45% */
   height: auto;
-  border-radius: 15px;
-  /* Glowing border - Hot Pink / Pinkish as per typical birthday themes */
-  border: 4px solid rgba(255, 105, 180, 0.8);
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 
-              0 0 30px rgba(255, 105, 180, 0.6), 
-              0 0 45px rgba(255, 105, 180, 0.4);
-  background-color: transparent; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0;
+  /* No border radius needed for contour glow */
+  border: none;
+  /* Remove border */
+  /* Use drop-shadow for contour glow on transparent images */
+  filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+  background-color: transparent;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .girl-dp-new:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 105, 180, 1), 
-              0 0 40px rgba(255, 105, 180, 0.8), 
-              0 0 60px rgba(255, 105, 180, 0.6);
+  filter: drop-shadow(0 0 5px rgba(255, 105, 180, 1)) drop-shadow(0 0 15px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 25px rgba(255, 105, 180, 0.6));
   z-index: 10;
+}
+
+/* Bend (Rotate) Effect */
+.girl-dps img:nth-child(1) {
+  transform: rotate(-10deg) translateY(10px);
+}
+
+.girl-dps img:nth-child(2) {
+  z-index: 5;
+  /* Keep middle image on top */
+  transform: scale(1.1);
+  /* Make middle slightly larger */
+}
+
+.girl-dps img:nth-child(3) {
+  transform: rotate(10deg) translateY(10px);
+}
+
+/* Maintain hover effect overrides */
+.girl-dps img:nth-child(1):hover {
+  transform: rotate(-10deg) scale(1.05);
+}
+
+.girl-dps img:nth-child(2):hover {
+  transform: scale(1.15);
+}
+
+.girl-dps img:nth-child(3):hover {
+  transform: rotate(10deg) scale(1.05);
 }
 
 /* Adjust layout on small screens */
 @media screen and (max-width: 500px) {
   .girl-dps {
-    flex-wrap: wrap; /* Allow wrapping if needed */
+    flex-wrap: wrap;
+    /* Allow wrapping if needed */
   }
+
   .girl-dp-new {
     max-width: 45% !important;
     margin-bottom: 10px;
